@@ -87,7 +87,7 @@ export default function OpponentHand({
         {Array.from({ length: 15 }).map((_, i) => (
           <img
             key={i}
-            src="/assets/cards/back.png"
+            src="/assets/cards/face_cachee.png"
             alt="Hidden card"
             style={{
               width: "min(4vw, 40px)",

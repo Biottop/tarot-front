@@ -15,9 +15,10 @@ export default function Hand({
   kingPlayed,
   count
 }) {
+  const safeDiscardCard = Array.isArray(discardCards) ? discardCards : [];
   // Cartes réellement dans la main (hors écart)
   const currentHand = cards.filter(
-    c => !discardCards.some(d => d.suit === c.suit && d.value === c.value)
+    c => !safeDiscardCard.some(d => d.suit === c.suit && d.value === c.value)
   );
 
   // Découpage en deux rangées
@@ -41,7 +42,7 @@ export default function Hand({
 
   const renderRow = (row) =>
     row.map((c, i) => {
-      const inDiscard = discardCards.some(
+      const inDiscard = safeDiscardCard.some(
         d => d.suit === c.suit && d.value === c.value
       );
 
